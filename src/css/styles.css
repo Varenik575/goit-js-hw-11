@@ -1,0 +1,35 @@
+body {
+    background-color: #97A7B3;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7E7F9A;
+    height: 90px;
+    border-radius: 10px;
+}
+
+.input {
+    border: none;
+        padding: 5px 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.search {
+    background-color: #F3DE8A;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.load-more {
+    background-color: #CAE7B9;
+    border: none;
+        padding: 5px 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+}
