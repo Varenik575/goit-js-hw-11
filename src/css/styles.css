@@ -11,6 +11,7 @@ body {
     padding-top: 10px;
     padding-bottom: 30px;
     border-radius: 10px;
+    margin-bottom: 30px;
 }
 
 h1 {
@@ -45,3 +46,24 @@ font-weight: 500;
         border-radius: 10px;
         box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
 }
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+}
+.photo-card {
+    background-color: white;
+    width: 300px;
+    height:fit-content;
+    border-radius: 10px;
+}
+
+.photo {
+width: 300px;
+object-fit: contain;
+border-radius: 10px 10px 0px 0px;
+}
+
+

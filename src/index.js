@@ -1,13 +1,14 @@
 import { fetchPhotosByQuery } from "./js/pixabay-api";
-
-const formInput = document.querySelector(".input");
-const form = document.querySelector('#search-form')
+import { form, formInput } from "./js/refs";
+import { renderCards } from "./js/card-render";
 
 form.addEventListener("submit", onSubmit);
 
 function onSubmit(event) {
     event.preventDefault();
-    fetchPhotosByQuery(formInput.value);
+
+    fetchPhotosByQuery(formInput.value)
+        .then(renderCards);
 
 }
 

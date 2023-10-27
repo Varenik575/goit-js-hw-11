@@ -32,10 +32,13 @@ export async function fetchPhotosByQuery(query) {
         } else {
             Notify.failure("Sorry, there are no images matching your search query. Please try again.");
         };
+
+        return hits;
     }
     catch {
         Notify.failure("Something went wrong, please try again.")
     }
-
 };
+
+
 
