@@ -1,17 +1,41 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
+
+const imageType = "photo";
+const imageOrientation = "horizontal";
+const amountPerPage = 40;
+const API_KEY = "40166916-9d1461e2ce0772333088e6da8";
+
+let pageCounter = 1;
+
 
 export async function fetchPhotosByQuery(query) {
-    return await axios.get(`https://pixabay.com/api/?`, {
-        params: {
-            image_type: 'photo',
-            orientation: 'horizontal',
-            q: query,
-            page: 1,
-            per_page: 40,
-            key: "40166916-9d1461e2ce0772333088e6da8",
-            safesearch: true,
-        }
-    })
-};
+    
+    try {
+        const { data: { total, totalHits, hits } } = await axios.get(`https://pixabay.com/api/?`, {
+            params: {
+                image_type: imageType,
+                orientation: imageOrientation,
+                q: query,
+                page: pageCounter,
+                per_page: amountPerPage,
+                key: API_KEY,
+                safesearch: true,
+            }
+        })
 
+        pageCounter += 1;
+    
+        if (!!totalHits) {
+            Notify.success(`Hooray! We found ${totalHits} images.`);
+
+        } else {
+            Notify.failure("Sorry, there are no images matching your search query. Please try again.");
+        };
+    }
+    catch {
+        Notify.failure("Something went wrong, please try again.")
+    }
+
+};
 

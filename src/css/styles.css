@@ -1,14 +1,26 @@
 body {
     background-color: #97A7B3;
+    font-family: Fredoka;
 }
 
 .header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     background-color: #7E7F9A;
-    height: 90px;
+    padding-top: 10px;
+    padding-bottom: 30px;
     border-radius: 10px;
+}
+
+h1 {
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0;
+}
+
+h2 { 
+font-weight: 500;
 }
 
 .input {
@@ -27,7 +39,7 @@ body {
 }
 
 .load-more {
-    background-color: #CAE7B9;
+    background-color: #F3DE8A;;
     border: none;
         padding: 5px 10px;
         border-radius: 10px;
