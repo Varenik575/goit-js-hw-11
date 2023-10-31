@@ -1,9 +1,12 @@
 body {
     background-color: #97A7B3;
     font-family: Fredoka;
+    margin-left: 15px;
+        margin-right: 15px;
 }
 
 .header {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,22 +51,50 @@ font-weight: 500;
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+width: 100%;
 
 }
+
+
+    .cols {
+            -moz-column-count: 3;
+            -moz-column-gap: 3%;
+            -moz-column-width: 33%;
+            -webkit-column-count: 3;
+            -webkit-column-gap: 3%;
+            -webkit-column-width: 33%;
+            column-count: 3;
+            column-gap: 3%;
+            column-width: 33%;
+        }
+
 .photo-card {
     background-color: white;
-    width: 300px;
+    width: 100%;
+    max-width: 390px;
     height:fit-content;
     border-radius: 10px;
+    margin-bottom: 15px;
+    display: inline-block;
 }
 
 .photo {
-width: 300px;
+width: 100%;
+max-width: 390px;
 object-fit: contain;
 border-radius: 10px 10px 0px 0px;
+}
+
+.info {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.hidden {
+    display: none;
 }
 
 

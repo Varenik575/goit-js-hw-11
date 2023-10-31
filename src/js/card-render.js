@@ -2,17 +2,18 @@
 import { galleryEl } from "./refs";
 
 export function renderCards(array) {
-    const cards = array.map(card => { const {
-            likes,
-            views,
-            comments,
-            downloads,
-            largeImageURL,
-            webformatURL,
-            tags
+  const cards = array.map(card => {
+    const {
+      likes,
+      views,
+      comments,
+      downloads,
+      largeImageURL,
+      webformatURL,
+      tags
     } = card;
         
-        return `<div class="photo-card">
+    return `<div class="photo-card">
   <img  class="photo" src="${webformatURL}" alt="${tags}" loading="lazy" />
   <div class="info">
     <p class="info-item">
@@ -28,9 +29,10 @@ export function renderCards(array) {
       <b>Downloads ${downloads}</b>
     </p>
   </div>
-</div> `;
-    })
+  </div>`;
+  });
 
     galleryEl.insertAdjacentHTML("beforeend", cards.join(''));  
 
 }
+

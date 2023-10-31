@@ -7,7 +7,7 @@ const amountPerPage = 40;
 const API_KEY = "40166916-9d1461e2ce0772333088e6da8";
 
 let pageCounter = 1;
-
+let totalAmount;
 
 export async function fetchPhotosByQuery(query) {
     
@@ -23,8 +23,6 @@ export async function fetchPhotosByQuery(query) {
                 safesearch: true,
             }
         })
-
-        pageCounter += 1;
     
         if (!!totalHits) {
             Notify.success(`Hooray! We found ${totalHits} images.`);
@@ -33,6 +31,7 @@ export async function fetchPhotosByQuery(query) {
             Notify.failure("Sorry, there are no images matching your search query. Please try again.");
         };
 
+        totalAmount = total;
         return hits;
     }
     catch {
@@ -40,5 +39,5 @@ export async function fetchPhotosByQuery(query) {
     }
 };
 
-
+ 
 
