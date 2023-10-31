@@ -14,6 +14,8 @@ function onSubmit(event) {
     fetchPhotosByQuery(formInput.value)
         .then(renderCards);
     
+    loaderButton.classList.remove('hidden');
+    
 };      
 
 function clearQuery() {
@@ -24,13 +26,16 @@ function clearQuery() {
 
 function loadNextPage() {
 
-        const loadedAmount = document.querySelectorAll('.photo-card');
+    const loadedAmount = document.querySelectorAll('.photo-card').length;
+    console.log(loadedAmount);
+    console.log(totalAmount);
                  
         if (loadedAmount < totalAmount) {
             pageCounter++;
             fetchPhotosByQuery(formInput.value).then(renderCards);
         }
         else {
+            loaderButton.classList.add('hidden');
             Notify.warning("We're sorry, but you've reached the end of search results.")
     };
     }
