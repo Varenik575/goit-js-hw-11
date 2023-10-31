@@ -39,5 +39,19 @@ export async function fetchPhotosByQuery(query) {
     }
 };
 
- 
+ function loadNextPage() {
+
+    const loadedAmount = document.querySelectorAll('.photo-card').length;
+    console.log(loadedAmount);
+    console.log(totalAmount);
+                 
+        if (loadedAmount < totalAmount) {
+            pageCounter++;
+            fetchPhotosByQuery(formInput.value).then(renderCards);
+        }
+        else {
+            loaderButton.classList.add('hidden');
+            Notify.warning("We're sorry, but you've reached the end of search results.")
+    };
+    }
 
