@@ -6,8 +6,8 @@ const imageOrientation = "horizontal";
 const amountPerPage = 40;
 const API_KEY = "40166916-9d1461e2ce0772333088e6da8";
 
-let pageCounter = 1;
-let totalAmount;
+export let pageCounter = 1;
+export let totalAmount;
 
 export async function fetchPhotosByQuery(query) {
     
@@ -39,19 +39,4 @@ export async function fetchPhotosByQuery(query) {
     }
 };
 
- function loadNextPage() {
-
-    const loadedAmount = document.querySelectorAll('.photo-card').length;
-    console.log(loadedAmount);
-    console.log(totalAmount);
-                 
-        if (loadedAmount < totalAmount) {
-            pageCounter++;
-            fetchPhotosByQuery(formInput.value).then(renderCards);
-        }
-        else {
-            loaderButton.classList.add('hidden');
-            Notify.warning("We're sorry, but you've reached the end of search results.")
-    };
-    }
-
+ 
