@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Notify } from 'notiflix';
+import { loaderWheel } from './refs';
 
 const imageType = "photo";
 const imageOrientation = "horizontal";
@@ -10,6 +11,8 @@ export let pageCounter = 1;
 export let totalAmount;
 
 export async function fetchPhotosByQuery(query) {
+
+    loaderWheel.classList.remove('hidden');
     
     try {
         const { data: { total, totalHits, hits } } = await axios.get(`https://pixabay.com/api/?`, {
@@ -32,10 +35,14 @@ export async function fetchPhotosByQuery(query) {
         };
 
         totalAmount = total;
+        pageCounter++;
         return hits;
     }
     catch {
         Notify.failure("Something went wrong, please try again.")
+    }
+    finally {
+        loaderWheel.classList.add('hidden');
     }
 };
 
