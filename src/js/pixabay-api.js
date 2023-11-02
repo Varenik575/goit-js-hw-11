@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Notify } from 'notiflix';
-import { loaderWheel } from './refs';
+import { loaderWheel, galleryEl } from './refs';
 
 const imageType = "photo";
 const imageOrientation = "horizontal";
@@ -11,9 +11,7 @@ export let pageCounter = 1;
 export let totalAmount;
 
 export async function fetchPhotosByQuery(query) {
-
     loaderWheel.classList.remove('hidden');
-    
     try {
         const { data: { total, totalHits, hits } } = await axios.get(`https://pixabay.com/api/?`, {
             params: {
@@ -26,7 +24,7 @@ export async function fetchPhotosByQuery(query) {
                 safesearch: true,
             }
         })
-    
+
         if (!!totalHits) {
             Notify.success(`Hooray! We found ${totalHits} images.`);
 
@@ -46,4 +44,7 @@ export async function fetchPhotosByQuery(query) {
     }
 };
 
- 
+export function clearQuery() {
+    pageCounter = 1;
+    galleryEl.innerHTML = "";
+}
