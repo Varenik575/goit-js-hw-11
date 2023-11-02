@@ -1,8 +1,8 @@
 
 import { galleryEl } from "./refs";
 
-export function renderCards(array) {
-  const cards = array.map(card => {
+export function renderCards(response) {
+  const cards = response.hits.map(card => {
     const {
       likes,
       views,
